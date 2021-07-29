@@ -26,10 +26,11 @@ const database = {
     orders: [
         {
             id: 1,
-            paintId: 3,
-            interiorId: 2,
-            technologyId: 3,
-            wheelId: 1
+            paintId: 1,
+            interiorId: 1,
+            technologyId: 1,
+            wheelId: 1,
+            timestamp: 10113344584932
         }
     ],
     orderBuilder: {}
@@ -79,14 +80,14 @@ export const addCustomOrder = () => {
     const newOrder = {...database.orderBuilder}
 
     // Add a new primary key to the object
-    const lastIndex = database.customOrders.length - 1
-    newOrder.id = database.customOrders[lastIndex].id + 1
+    const lastIndex = database.orders.length - 1
+    newOrder.id = database.orders[lastIndex].id + 1
 
     // Add a timestamp to the order
     newOrder.timestamp = Date.now()
 
     // Add the new order object to custom orders state
-    database.customOrders.push(newOrder)
+    database.orders.push(newOrder)
 
     // Reset the temporary state for user choices
     database.orderBuilder = {}

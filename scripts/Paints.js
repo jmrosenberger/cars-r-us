@@ -15,13 +15,6 @@ document.addEventListener(
         if (event.target.name === "paint") {
             setPaint(parseInt(event.target.value))
         }
-            for (const paint of paints) {
-                if(event.target.value === paint.id) {
-                    paintSelected = paint.color
-
-                    window.alert(`User chose Option ${paintSelected}`)
-                }
-            }
     }
 )
 

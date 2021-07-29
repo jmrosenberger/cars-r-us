@@ -2,6 +2,7 @@ import { Colors } from "./Paints.js"
 import { Upholstry } from "./Interiors.js"
 import { Technology } from "./Technologies.js"
 import { Wheels } from "./Wheels.js"
+import { Orders } from "./Orders.js"
 import { addCustomOrder } from "./database.js"
 
 
@@ -52,6 +53,7 @@ export const CarsRUs = () => {
         
         <article class="customOrders">
             <h2>Custom Vehicle Orders</h2>
+            ${Orders()}
             
         </article>
     `

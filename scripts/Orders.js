@@ -1,6 +1,6 @@
 import { getOrders, getPaints, getInteriors, getTechnologies, getWheels } from "./database.js"
 
-const orders = getOrders()
+
 const paints = getPaints()
 const interiors = getInteriors()
 const technologies = getTechnologies()
@@ -27,16 +27,21 @@ const buildOrderListItem = (order) => {
         }
     )
 
-    const findWheels = wheels.find (
+    const findWheel = wheels.find (
         (wheel) => {
             return wheel.id === order.wheelId
         }
     )
 
-        
+      
+    const totalCost = findPaint.price + findInterior.price + findTecnology.price + findWheel.price
+    const costString = totalCost.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD"
+    })
 
     return `<li>
-        Order #${order.id} was placed on ${order.timestamp}
+        Order #${order.id} costs ${costString} and was placed on ${order.timestamp}
     </li>`
 }
 

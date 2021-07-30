@@ -3,6 +3,7 @@ import { Upholstry } from "./Interiors.js"
 import { Technology } from "./Technologies.js"
 import { Wheels } from "./Wheels.js"
 import { Orders } from "./Orders.js"
+import { VehicleTypes } from "./VehicleTypes.js"
 import { addCustomOrder } from "./database.js"
 
 
@@ -48,6 +49,11 @@ export const CarsRUs = () => {
         </article>
             
         <article>
+        <div class="types">
+                <section class="vehicleType">
+                    ${VehicleTypes()}
+                </section>
+            </div>
             <button id="orderButton">Create Custom Vehicle</button>
         </article>
         

@@ -1,11 +1,18 @@
-import { getPaints, setPaint } from "./database.js"
-
-const paints = getPaints()
+import { getPaints, setPaint, getOrderBuilder } from "./database.js"
 
 
 
 
 
+// document.addEventListener(
+//     "click",
+//     (event) => {
+//         const itemClicked = event.target
+//         if (itemClicked.name === "paint") {
+
+//         }
+//     }
+// )
 
 
 
@@ -14,6 +21,9 @@ document.addEventListener(
     (event) => {
         if (event.target.name === "paint") {
             setPaint(parseInt(event.target.value))
+            // document.dispatchEvent(new CustomEvent("stateChanged"))
+            console.log("State of data has changed. Regenerating HTML...")
+            renderAllHTML()
         }
     }
 )
@@ -22,39 +32,25 @@ document.addEventListener(
 
 
 
-// document.addEventListener(
-//     "change",
-//     (event) => {
-        
-//         for (const paint of paints) {
-
-//             if (event.target.name === "paint") {
-
-//                 const paintSelected = paints.find(
-//                     (paint) => {
-
-//                     }
-//                     )
-//                     if (paint.id === parseInt(paintId)) {
-//                         const paintSelected = paint.color
-//                         window.alert(`User chose ${paint.color}`)
-//                     }
-//                 }
-//         }
-//     }
-// )
-
-
-
 export const Colors = () => {
+    const paints = getPaints()
+    const orderBuilder = getOrderBuilder()
+    
     let html = "<ul>"
 
-    for (const paint of paints) {
-        html += `<li>
-            <input type="radio" name="paint" value="${paint.id}" /> ${paint.color}
-        </li>`
-    }
+    const listItems = paints.map(paint => {
+        if (paint.id === orderBuilder.paintId) {
+            return `<li>
+            <input type="radio" name="paint" value="${paint.id}" checked="checked"/>${paint.color}
+            </li>`
+        } else {
+            return `<li>
+            <input type="radio" name="paint" value="${paint.id}" />${paint.color}
+            </li>`
+        }
+    })
 
+    html += listItems.join("")
     html += "</ul>"
     return html
 }
@@ -63,3 +59,9 @@ export const Colors = () => {
 
 
 
+
+// for (const paint of paints) {
+//     html += `<li>
+//         <input type="radio" name="paint" value="${paint.id}" checked="checked" /> ${paint.color}
+//     </li>`
+// }

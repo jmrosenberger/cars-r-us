@@ -28,7 +28,7 @@ const buildOrderListItem = (order) => {
         }
     )
 
-    const findWheel = wheels.find (
+    const findWheel = wheels.find(
         (wheel) => {
             return wheel.id === order.wheelId
         }
@@ -40,7 +40,7 @@ const buildOrderListItem = (order) => {
         }
     )
 
-      
+
     const totalCost = (findPaint.price + findInterior.price + findTecnology.price + findWheel.price) * findType.price
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",

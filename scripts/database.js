@@ -42,6 +42,9 @@ const database = {
     orderBuilder: {}
 }
 
+export const getOrderBuilder = () => {
+   return database.orderBuilder = {}
+}
 
 export const getPaints = () => {
     return database.paints.map(paint => ({...paint}))

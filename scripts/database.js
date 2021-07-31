@@ -43,7 +43,7 @@ const database = {
 }
 
 export const getOrderBuilder = () => {
-   return database.orderBuilder = {}
+   return database.orderBuilder
 }
 
 export const getPaints = () => {

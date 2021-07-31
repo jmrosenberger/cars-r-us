@@ -2,7 +2,7 @@ import { CarsRUs } from "./Cars-r-us.js"
 
 const mainContainer = document.querySelector("#container")
 
-const renderAllHTML = () => {
+export const renderAllHTML = () => {
     mainContainer.innerHTML = CarsRUs()
 }
 
